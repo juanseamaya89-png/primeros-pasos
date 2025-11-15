@@ -8,19 +8,29 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
       padding: 20px;
       margin: 0;
       text-align: center;
+      color: white;
     }
+
     #app-container {
       background: white;
-      max-width: 600px;
+      color: #333;
+      max-width: 650px;
       margin: auto;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      animation: fadein 0.4s ease;
     }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
     button {
       padding: 12px 18px;
       margin: 10px;
@@ -31,26 +41,36 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
     button:hover {
       background: #0056b3;
     }
+
+    .back-btn {
+      background: #666;
+      margin-bottom: 10px;
+      float: left;
+    }
+
     .option {
       display: block;
       background: #eee;
-      padding: 10px;
+      padding: 12px;
       margin: 10px 0;
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      transition: 0.2s;
+      font-size: 16px;
     }
-    .back-btn {
-    background: #999;
-    float: left;
-    margin-bottom: 10px;
-    border-radius: 10px;
-}
 
     .option:hover {
       background: #ddd;
+    }
+
+    #options {
+      margin-top: 20px;
+      text-align: left;
     }
   </style>
 </head>
@@ -59,6 +79,7 @@
   <div id="app-container">
     <h1>Exam App</h1>
 
+    <!-- MENU -->
     <div id="menu">
       <p>Selecciona un examen:</p>
       <button onclick="startExam('tarot')">Tarot (100)</button>
@@ -66,13 +87,19 @@
       <button onclick="startExam('astrologia')">Astrología (70)</button>
     </div>
 
+    <!-- EXAMEN -->
     <div id="exam" style="display:none;">
+
+      <!-- Botón de regresar -->
       <button class="back-btn" onclick="goBackToMenu()">⬅ Volver</button>
+
       <h2 id="question-text"></h2>
       <div id="options"></div>
+
       <button onclick="nextQuestion()">Siguiente</button>
     </div>
 
+    <!-- RESULTADOS -->
     <div id="result" style="display:none;">
       <h2>Resultado</h2>
       <p id="score"></p>
@@ -80,10 +107,12 @@
     </div>
   </div>
 
-  <!-- IMPORTANTÍSIMO: GitHub Pages requiere rutas simples SIN / -->
+  <!-- Scripts de preguntas -->
   <script src="questions_tarot.js"></script>
   <script src="questions_numerologia.js"></script>
   <script src="questions_astrologia.js"></script>
+
+  <!-- Script principal -->
   <script src="script.js"></script>
 
 </body>
