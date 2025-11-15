@@ -1,4 +1,4 @@
-const questions_tarot = [
+const tarotQuestions = [
     { q: "¿Qué representa El Loco en el Tarot?", options: ["Inicios y libertad", "Estabilidad", "Control", "Fracaso"], answer: 0 },
     { q: "¿Qué elemento se asocia con los Bastos?", options: ["Fuego", "Aire", "Agua", "Tierra"], answer: 0 },
     { q: "¿Qué elemento se asocia con las Copas?", options: ["Agua", "Aire", "Fuego", "Tierra"], answer: 0 },
