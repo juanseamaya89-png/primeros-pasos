@@ -1,4 +1,4 @@
-const questions_astrologia = [
+const astrologiaQuestions = [
   {
     question: "¿Qué signo zodiacal inicia el zodiaco occidental?",
     options: ["Tauro", "Aries", "Géminis", "Piscis"],
