@@ -1,1 +1,25 @@
-<!DOCTYPE html><html><body><h1>Exam App</h1><script type='module' src='app.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Examen Esotérico</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <!-- Pantalla de inicio -->
+    <div id="start-screen" class="screen">
+        <h1>Examen Esotérico</h1>
+        <p>Elige una categoría:</p>
+        <button class="category-btn" onclick="startExam('tarot')">🔮 Tarot</button>
+        <button class="category-btn" onclick="startExam('numerologia')">🔢 Numerología</button>
+        <button class="category-btn" onclick="startExam('astrologia')">✨ Astrología</button>
+    </div>
+
+    <!-- Pantalla del examen -->
+    <div id="exam-screen" class="screen">
+        <h2 id="category-title">Examen</h2>
+        <div class="progress-container"><div id="progress-bar"></div></div>
+        <div id="question-card" class="question-card">
+            <h3 id=
