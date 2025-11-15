@@ -27,5 +27,4 @@ export const tarotQuestions = [
 { question: "¿Qué indica aparición de muchos oros (pentáculos)?", options: ["Falta de recursos","Enfoque en lo material y lo práctico","Desánimo","Alegría"], answer: 1 },
 { question: "¿Qué sugiere que el Rey de Copas y la Reina de Copas aparezcan juntos?", options: ["Conflicto","Madurez emocional en pareja o liderazgo emocional","Pérdida","Desconfianza"], answer: 1 },
 { question: "¿Qué significa si aparecen El Loco, El Mago y El Sol juntos?", options: ["Derrota total","Comienzo feliz con poder personal y éxito","Confusión profunda","Ruptura"], answer: 1 },
-{ question: "¿Qué comunica combinación de La Torre + Diez de Espadas?", options: ["Mejora inmediata","Colapso y final doloroso antes de reconstrucción","Estabilidad","Triunfo"], answer: 1 }
-];
+{ question: "¿Qué comunica combinación de La Torre + Diez de Espadas?", options: ["Mejora inmediata","Colapso y final doloroso antes de reconstrucción","Estabilidad","Triunfo"], answer: 1 }];
