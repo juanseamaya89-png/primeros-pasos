@@ -48,5 +48,4 @@ export const numerologyQuestions = [{ question: "¿Qué es la numerología?", op
 { question: "¿Qué número es más compatible con el 5?", options: ["3", "7", "9", "2"], answer: 0 },
 { question: "¿Qué número es más compatible con el 6?", options: ["1", "2", "4", "9"], answer: 3 },
 { question: "¿Qué número es más compatible con el 7?", options: ["2", "3", "4", "9"], answer: 0 },
-{ question: "¿Qué estudia principalmente la numerología?", options: ["El destino a través de símbolos gráficos","La influencia de los números en la vida","La astrología planetaria","La lectura del tarot"], answer: 1 },
-  ];
+{ question: "¿Qué estudia principalmente la numerología?", options: ["El destino a través de símbolos gráficos","La influencia de los números en la vida","La astrología planetaria","La lectura del tarot"], answer: 1 }];
