@@ -2,11 +2,13 @@ let currentQuestions = [];
 let currentIndex = 0;
 let score = 0;
 
+// --- Iniciar examen ---
 function startExam(type) {
   if (type === "tarot") currentQuestions = tarotQuestions;
   if (type === "numerologia") currentQuestions = numerologiaQuestions;
   if (type === "astrologia") currentQuestions = astrologiaQuestions;
 
+  // Mezcla y selecciona 20 preguntas
   currentQuestions = shuffle([...currentQuestions]).slice(0, 20);
 
   currentIndex = 0;
@@ -18,6 +20,7 @@ function startExam(type) {
   loadQuestion();
 }
 
+// --- Cargar pregunta ---
 function loadQuestion() {
   const q = currentQuestions[currentIndex];
   document.getElementById("question-text").textContent = q.q;
@@ -25,30 +28,39 @@ function loadQuestion() {
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
 
-  // Mezclar opciones manteniendo cuál es correcta
-  const indexedOptions = q.options.map((opt, i) => ({ opt, index: i }));
-  const shuffled = shuffle(indexedOptions);
+  // Mezclar opciones sin cambiar la respuesta real
+  const mixedOptions = q.options.map((opt, index) => ({
+    text: opt,
+    isCorrect: index === q.answer
+  }));
 
-  shuffled.forEach(item => {
+  shuffle(mixedOptions);
+
+  mixedOptions.forEach((opt) => {
     const div = document.createElement("div");
     div.className = "option";
-    div.textContent = item.opt;
+    div.textContent = opt.text;
 
     div.onclick = () => {
-      if (item.index === q.answer) {
-        div.classList.add("correct");
+      // Bloquear clics
+      Array.from(optionsDiv.children).forEach(c => (c.onclick = null));
+
+      if (opt.isCorrect) {
+        div.style.background = "lightgreen";
+        div.style.borderColor = "green";
         score++;
       } else {
-        div.classList.add("incorrect");
+        div.style.background = "salmon";
+        div.style.borderColor = "red";
       }
-
-      Array.from(optionsDiv.children).forEach(c => (c.onclick = null));
     };
 
     optionsDiv.appendChild(div);
   });
 }
 
+
+// --- Botón siguiente ---
 function nextQuestion() {
   currentIndex++;
   if (currentIndex >= currentQuestions.length) {
@@ -58,23 +70,28 @@ function nextQuestion() {
   }
 }
 
+// --- Finalizar examen ---
 function endExam() {
   document.getElementById("exam").style.display = "none";
   document.getElementById("result").style.display = "block";
-
-  document.getElementById("score").textContent = `Tu puntuación: ${score} / ${currentQuestions.length}`;
+  document.getElementById("score").textContent =
+    `Tu puntuación: ${score} / ${currentQuestions.length}`;
 }
 
+// --- Regresar al menú desde el examen ---
+function goBackToMenu() {
+  document.getElementById("exam").style.display = "none";
+  document.getElementById("menu").style.display = "block";
+}
+
+// --- Reiniciar ---
 function resetApp() {
   document.getElementById("menu").style.display = "block";
   document.getElementById("exam").style.display = "none";
   document.getElementById("result").style.display = "none";
 }
 
-function goBackToMenu() {
-  resetApp();
-}
-
+// --- Mezclador universal ---
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
