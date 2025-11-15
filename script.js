@@ -20,7 +20,7 @@ function startExam(type) {
 
 function loadQuestion() {
   const q = currentQuestions[currentIndex];
-  document.getElementById("question-text").textContent = q.question;
+  document.getElementById("question-text").textContent = q.q;
 
   const optionsDiv = document.getElementById("options");
   optionsDiv.innerHTML = "";
