@@ -42,6 +42,13 @@
       cursor: pointer;
       border-radius: 6px;
     }
+    .back-btn {
+    background: #999;
+    float: left;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
     .option:hover {
       background: #ddd;
     }
@@ -60,6 +67,7 @@
     </div>
 
     <div id="exam" style="display:none;">
+      <button class="back-btn" onclick="goBackToMenu()">⬅ Volver</button>
       <h2 id="question-text"></h2>
       <div id="options"></div>
       <button onclick="nextQuestion()">Siguiente</button>
