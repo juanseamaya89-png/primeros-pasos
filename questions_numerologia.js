@@ -1,4 +1,4 @@
-export const numerologyQuestions = [
+const numerologyQuestions = [
     { q: "¿Qué representa el número 1 en numerología?", options: ["Liderazgo", "Pasividad", "Miedo", "Inestabilidad"], answer: 0 },
     { q: "El número 2 está asociado con:", options: ["Cooperación", "Impulso", "Aventura", "Aislamiento"], answer: 0 },
     { q: "El número 3 simboliza:", options: ["Creatividad", "Rigidez", "Fuerza bruta", "Oscuridad"], answer: 0 },
