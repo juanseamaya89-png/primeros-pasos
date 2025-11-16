@@ -133,3 +133,16 @@ function endExam() {
   document.getElementById("score-text").textContent = 
     `Tu puntaje final es: ${score} / ${currentQuestions.length}`;
 }
+function resetApp() {
+  document.getElementById("exam").style.display = "none";
+  document.getElementById("result").style.display = "none";
+  document.getElementById("menu").style.display = "block";
+
+  currentQuestions = [];
+  currentIndex = 0;
+  score = 0;
+
+  document.getElementById("question-text").textContent = "";
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("progress-text").textContent = "";
+}
