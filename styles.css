@@ -2,12 +2,11 @@
    Tarot Clásico — styles.css
    =================================================== */
 
-/* Root colors */
 :root{
-  --bg-1: #1b0b2b;      /* deep purple */
-  --bg-2: #3a0f4a;      /* mid purple */
-  --panel: #fff8f2;     /* parchment */
-  --accent: #d9b24a;    /* gold */
+  --bg-1: #1b0b2b;
+  --bg-2: #3a0f4a;
+  --panel: #fff8f2;
+  --accent: #d9b24a;
   --muted: #c8bfbf;
   --card-bg: rgba(255,248,242,0.95);
   --glass: rgba(255,255,255,0.06);
@@ -17,7 +16,6 @@
   --glass-border: rgba(217,178,74,0.12);
 }
 
-/* Global layout */
 *{box-sizing:border-box}
 html,body{
   height:100%;
@@ -34,7 +32,6 @@ html,body{
   padding:28px;
 }
 
-/* App container (card) */
 #app-container{
   width:100%;
   max-width:720px;
@@ -48,7 +45,6 @@ html,body{
   overflow:hidden;
 }
 
-/* Ornamental top border (gold filigree look) */
 #app-container::before{
   content: "";
   position:absolute;
@@ -63,7 +59,6 @@ html,body{
   pointer-events:none;
 }
 
-/* Title */
 h1{
   margin:0 0 8px 0;
   font-family: "Palatino Linotype", "Book Antiqua", serif;
@@ -76,7 +71,6 @@ h1{
   gap:12px;
 }
 
-/* Subtitle / header strip */
 .header-strip{
   display:flex;
   align-items:center;
@@ -85,7 +79,6 @@ h1{
   margin-bottom:18px;
 }
 
-/* Category buttons (menu) */
 #menu p{ margin:0 0 10px 0; color: #5a4a66; font-size:14px; }
 .menu-buttons{
   display:flex;
@@ -113,7 +106,6 @@ button:hover{
   box-shadow: 0 14px 34px rgba(79,41,108,0.22);
 }
 
-/* Smaller neutral button (back) */
 .back-btn{
   background: linear-gradient(180deg,#6b6b6b,#595959);
   color: #fff;
@@ -124,13 +116,11 @@ button:hover{
   box-shadow: 0 6px 12px rgba(0,0,0,0.12);
 }
 
-/* Exam area */
 #exam {
   margin-top:8px;
   display:block;
 }
 
-/* Question card */
 #question-text{
   font-family: "Georgia", serif;
   font-size:20px;
@@ -145,7 +135,6 @@ button:hover{
   box-shadow: 0 8px 18px rgba(41,21,58,0.06);
 }
 
-/* Options list */
 #options{
   display:flex;
   flex-direction:column;
@@ -153,7 +142,6 @@ button:hover{
   margin-top:8px;
 }
 
-/* Option button */
 .option{
   display:block;
   padding:14px 16px;
@@ -173,7 +161,6 @@ button:hover{
   box-shadow: 0 12px 26px rgba(32,14,54,0.06);
 }
 
-/* Correct / incorrect states (classes applied by script) */
 .option.correct{
   background: linear-gradient(90deg, rgba(45,191,91,0.12), rgba(45,191,91,0.06));
   border: 1px solid rgba(45,191,91,0.22);
@@ -186,7 +173,6 @@ button:hover{
   box-shadow: 0 8px 20px rgba(255,107,107,0.06);
 }
 
-/* Footer controls row (Siguiente) */
 .controls{
   display:flex;
   justify-content:space-between;
@@ -195,7 +181,6 @@ button:hover{
   gap:12px;
 }
 
-/* Siguiente button look */
 .controls .next-btn{
   margin-left:auto;
   background: linear-gradient(90deg,var(--accent), #c48f2f);
@@ -207,7 +192,6 @@ button:hover{
   box-shadow: 0 14px 30px rgba(44,20,20,0.07);
 }
 
-/* Results */
 #result{
   text-align:center;
 }
@@ -218,7 +202,6 @@ button:hover{
   color: #1e1a2b;
 }
 
-/* Responsive */
 @media (max-width:520px){
   #app-container{ padding:18px; border-radius:12px }
   h1{ font-size:22px }
@@ -226,7 +209,6 @@ button:hover{
   button{ padding:10px 14px; font-size:14px }
 }
 
-/* Small decorative glyphs using pseudo elements for a tarot feel */
 #app-container h1::after{
   content: " ✦";
   color: var(--accent);
@@ -235,7 +217,6 @@ button:hover{
   text-shadow: 0 2px 6px rgba(212,178,74,0.25);
 }
 
-/* Optional subtle star field in background */
 body::after{
   content: "";
   position: fixed;
@@ -247,11 +228,13 @@ body::after{
   mix-blend-mode: overlay;
 }
 
-/* Accessibility: focus */
 .option:focus{
   outline: 3px solid rgba(217,178,74,0.22);
   outline-offset:3px;
 }
 
-/* Small helper for hidden elements */
 .hidden { display:none !important; }
+
+/* Fade helper */
+.fade { opacity: 0; transition: opacity .35s ease; }
+.fade-in { opacity: 1; }
