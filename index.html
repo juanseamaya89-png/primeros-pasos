@@ -1,105 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exam App</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #6a11cb, #2575fc);
-      padding: 20px;
-      margin: 0;
-      text-align: center;
-      color: white;
-    }
-
-    #app-container {
-      background: white;
-      color: #333;
-      max-width: 650px;
-      margin: auto;
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      animation: fadein 0.4s ease;
-    }
-
-    @keyframes fadein {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    button {
-      padding: 12px 18px;
-      margin: 10px;
-      border: none;
-      background: #007bff;
-      color: white;
-      font-size: 16px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0056b3;
-    }
-
-    .back-btn {
-      background: #666;
-      margin-bottom: 10px;
-      float: left;
-    }
-
-    .option {
-      display: block;
-      background: #eee;
-      padding: 12px;
-      margin: 10px 0;
-      cursor: pointer;
-      border-radius: 10px;
-      border: 2px solid transparent;
-      transition: 0.2s;
-      font-size: 16px;
-    }
-
-    .option:hover {
-      background: #ddd;
-    }
-
-    #options {
-      margin-top: 20px;
-      text-align: left;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam App — Tarot · Numerología · Astrología</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
   <div id="app-container">
     <h1>Exam App</h1>
 
     <!-- MENU -->
     <div id="menu">
       <p>Selecciona un examen:</p>
-      <button onclick="startExam('tarot')">Tarot (100)</button>
-      <button onclick="startExam('numerologia')">Numerología (70)</button>
-      <button onclick="startExam('astrologia')">Astrología (70)</button>
+      <div class="menu-buttons">
+        <button onclick="startExam('tarot')">🔮 Tarot (100)</button>
+        <button onclick="startExam('numerologia')">🔢 Numerología (70)</button>
+        <button onclick="startExam('astrologia')">🌙 Astrología (70)</button>
+      </div>
     </div>
 
-    <!-- EXAMEN -->
+    <!-- EXAM -->
     <div id="exam" style="display:none;">
+      <div class="header-strip">
+        <button class="back-btn" onclick="resetApp()">← Volver</button>
+        <div id="category-header" class="category-header">
+          <span id="category-icon" style="font-size:22px;"></span>
+          <span id="category-name" style="margin-left:10px; font-weight:700;"></span>
+        </div>
+      </div>
 
-      <!-- Botón de regresar -->
-      <button class="back-btn" onclick="goBackToMenu()">⬅ Volver</button>
+      <h2 id="question-text" class="fade"></h2>
+      <div id="options" class="fade"></div>
 
-      <h2 id="question-text"></h2>
-      <div id="options"></div>
-
-      <button onclick="nextQuestion()">Siguiente</button>
+      <div class="controls">
+        <div id="progress" style="align-self:center;color:#6b587a;font-size:13px;">
+          <span id="progress-text"></span>
+        </div>
+        <button onclick="nextQuestion()" class="next-btn">Siguiente</button>
+      </div>
     </div>
 
-    <!-- RESULTADOS -->
+    <!-- RESULT -->
     <div id="result" style="display:none;">
       <h2>Resultado</h2>
       <p id="score"></p>
@@ -107,13 +49,12 @@
     </div>
   </div>
 
-  <!-- Scripts de preguntas -->
+  <!-- Preguntas -->
   <script src="questions_tarot.js"></script>
   <script src="questions_numerologia.js"></script>
   <script src="questions_astrologia.js"></script>
 
-  <!-- Script principal -->
+  <!-- Lógica -->
   <script src="script.js"></script>
-
 </body>
 </html>
