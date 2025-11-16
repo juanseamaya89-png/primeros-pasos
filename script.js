@@ -122,6 +122,14 @@ function nextQuestion() {
 }
 
 // --- Finalizar examen ---
+// --- Finalizar examen ---
 function endExam() {
   document.getElementById("exam").style.display = "none";
-  document.getElementById("result
+  document.getElementById("menu").style.display = "none";
+  
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";
+
+  document.getElementById("score-text").textContent = 
+    `Tu puntaje final es: ${score} / ${currentQuestions.length}`;
+}
